@@ -2,11 +2,11 @@ import axios from "axios";
 import type { NextPage } from "next";
 import { useCallback, useState } from "react";
 
-import Brand from "../../components/Brand";
-import Category from "../../components/Category";
-import Header from "../../components/Header";
-import Product from "../../components/Product";
-import Setting from "../../components/Setting";
+import Brand from "../components/Brand";
+import Category from "../components/Category";
+import Header from "../components/Header";
+import Product from "../components/Product";
+import Setting from "../components/Setting";
 
 const Home: NextPage = () => {
   const [view, setView] = useState<"product" | "order">("product");

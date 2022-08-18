@@ -60,7 +60,7 @@ export default function Product() {
           ></i>
           <div
             onClick={() => {
-              router.push(`/view/product/${v.id}`);
+              router.push(`/product/${v.id}`);
             }}
             className=" cursor-pointer w-[160px]"
           >
@@ -91,7 +91,7 @@ export default function Product() {
 
       <div
         onClick={() => {
-          router.push("/view/product/add");
+          router.push("/product/add");
         }}
         className="bg-black w-[50px] h-[50px] flex bottom-[16px] cursor-pointer right-[16px] items-center justify-center fixed rounded-full"
       >

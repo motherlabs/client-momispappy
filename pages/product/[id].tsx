@@ -3,14 +3,14 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import ReactSwitch from "react-switch";
-import productAPI from "../../../api/productAPI";
-import Relation from "../../../components/Relation";
-import useMustNumber from "../../../hooks/useMustNumber";
-import loadingSlice from "../../../slices/loadingSlice";
-import productSlice from "../../../slices/productSlice";
-import { RootState } from "../../../store/reducer";
-import { ICategory, IProduct, ProductImageType } from "../../../types/productType";
-import priceUtil from "../../../utils/priceUtil";
+import productAPI from "../../api/productAPI";
+import Relation from "../../components/Relation";
+import useMustNumber from "../../hooks/useMustNumber";
+import loadingSlice from "../../slices/loadingSlice";
+import productSlice from "../../slices/productSlice";
+import { RootState } from "../../store/reducer";
+import { ICategory, IProduct, ProductImageType } from "../../types/productType";
+import priceUtil from "../../utils/priceUtil";
 
 export default function ProductDetail() {
   const router = useRouter();
