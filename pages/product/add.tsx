@@ -130,7 +130,7 @@ export default function ProductAdd() {
     await productAPI.createProduct(formData);
     dispatch(loadingSlice.actions.setLoading(false));
     alert("상품이 등록 되었습니다.");
-    router.push("/view");
+    router.push("/");
   }, [dispatch, crawlingItem, brands, categories, name, disCount, isEvent, price, selectedBrand, selectedCategory, shippingFee, crawlingURL, relation, router, screenshotImages]);
 
   const verifyCreateHandler = useCallback(() => {

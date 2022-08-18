@@ -105,7 +105,7 @@ export default function ProductDetail() {
     dispatch(loadingSlice.actions.setLoading(false));
     setIsRequest(true);
     if (confirm("상품 수정이 완료됐습니다. 목록으로 이동하시겠습니까?")) {
-      router.push("/view");
+      router.push("/");
     }
   }, [dispatch, router, name, price, disCount, shippingFee, isEvent, deleteImages, oldRelations, recentRelations, categoryId]);
 
