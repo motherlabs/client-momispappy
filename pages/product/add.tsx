@@ -64,7 +64,7 @@ export default function ProductAdd() {
       }
       if (crawlingData.descriptionImage > 0) {
         for (let i = 1; i <= crawlingData.descriptionImage; i++) {
-          setScreenshotImages([...screenshotImages, `${process.env.NEXT_PUBLIC_SERVER_URL?.replace("api/v1", "")}${i}.png`]);
+          setScreenshotImages([...screenshotImages, `${process.env.NEXT_PUBLIC_SERVER_URL?.replace("api/v1", "")}${i}.jpg`]);
         }
       }
       dispatch(productSlice.actions.setCrawlingItem(crawlingData));
