@@ -192,9 +192,9 @@ export default function ProductAdd() {
   const isCreateButton = isCreateButtonHandler();
 
   return (
-    <div className={` h-screen ${nonScroll ? "non-scroll" : ""}`}>
+    <div className={` h-screen`}>
       {isRelation && <Relation setNonScroll={setNonScroll} setIsRelation={setIsRelation} relation={relation} setRelation={setRelation} />}
-      <div className="px-4">
+      <div className={`px-4 ${nonScroll ? "non-scroll" : ""}`}>
         <div
           onClick={() => {
             router.back();
@@ -233,7 +233,7 @@ export default function ProductAdd() {
                       type="text"
                       value={name}
                       onChange={(e) => {
-                        setName(e.target.value.trim());
+                        setName(e.target.value);
                       }}
                       className="border-b border-black  w-full"
                     />
@@ -352,7 +352,7 @@ export default function ProductAdd() {
                     type="text"
                     value={name}
                     onChange={(e) => {
-                      setName(e.target.value.trim());
+                      setName(e.target.value);
                     }}
                     className="border-b border-black  w-full"
                   />

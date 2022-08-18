@@ -140,7 +140,7 @@ export default function ProductDetail() {
   }, [updateProductAPIHandler, name, price, categoryId, disCount, shippingFee]);
 
   return (
-    <div className={` h-screen ${nonScroll ? "non-scroll" : ""}`}>
+    <div className={` h-screen `}>
       {isRelation && (
         <Relation
           setNonScroll={setNonScroll}
@@ -152,7 +152,7 @@ export default function ProductDetail() {
           setRelation={setSelectedRelations}
         />
       )}
-      <div className="px-4">
+      <div className={`px-4 ${nonScroll ? "non-scroll" : ""}`}>
         <div
           onClick={() => {
             router.back();
@@ -191,7 +191,7 @@ export default function ProductDetail() {
                     type="text"
                     value={name}
                     onChange={(e) => {
-                      setName(e.target.value.trim());
+                      setName(e.target.value);
                     }}
                     className="border-b border-black  w-full"
                   />
@@ -295,7 +295,7 @@ export default function ProductDetail() {
                   type="text"
                   value={name}
                   onChange={(e) => {
-                    setName(e.target.value.trim());
+                    setName(e.target.value);
                   }}
                   className="border-b border-black  w-full"
                 />
