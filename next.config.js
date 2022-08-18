@@ -10,6 +10,17 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    domains: ["momispappy-bucket.s3.ap-northeast-2.amazonaws.com", "looxloo.com", "localhost"],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/bluedog/:path*",
+        destination: `https://looxloo.com/:path*`,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

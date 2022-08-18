@@ -39,11 +39,16 @@ const converterPrice = (price: string): string => {
   return result;
 };
 
+const calculationDiscount = (price: number, discount: number): number => {
+  return Math.floor(price - (price *= discount / 100));
+};
+
 const priceUtil = {
   converterPrice,
   numberToKorean,
   priceRegex,
   numberFormat,
+  calculationDiscount,
 };
 
 export default priceUtil;

@@ -66,6 +66,48 @@ const apiMultipartClient = axios.create({
   },
 });
 
+apiMultipartClient.interceptors.request.use(
+  (request) => {
+    request.headers = {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${getCookie("AT_MOMISPAPPY")}`,
+    };
+    return request;
+  },
+  async (error) => {
+    return Promise.reject(error);
+  }
+);
+
+apiMultipartClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    const {
+      config,
+      response: { status },
+    } = error;
+    // console.log("error", status);
+    if (status === 401) {
+      console.log("reissuance Token");
+      const originalRequest = config;
+      if (originalRequest.url === "/auth/refresh") {
+        console.log("intercentor close");
+      } else {
+        const refreshToken = getCookie("RT_MOMISPAPPY");
+        const response = await apiAuthClient.post("/auth/refresh", { refreshToken: refreshToken });
+        setCookie("AT_MOMISPAPPY", response.data.accessToken);
+        originalRequest.headers = { "Content-type": "application/json", Authorization: `Bearer ${response.data.accessToken}` };
+
+        // 전 리퀘스트 다시 요청
+        return axios(originalRequest);
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 const customAxios = {
   apiClient,
   apiAuthClient,
