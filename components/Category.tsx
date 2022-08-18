@@ -116,7 +116,7 @@ export default function Category() {
                     }}
                     className=" cursor-pointer fa-solid fa-trash text-lg absolute top-1/2 -translate-y-2/4 -right-[60px] bg-white px-3 py-1 rounded-full"
                   ></i>
-                  <img width={60} height={60} className={``} src={previewImageURL ? previewImageURL : ""} alt="" />
+                  <img className={`w-[60px] h-[60px]`} src={previewImageURL ? previewImageURL : ""} alt="" />
                 </div>
               ) : (
                 <div
@@ -169,7 +169,7 @@ export default function Category() {
                     }}
                     className=" cursor-pointer fa-solid fa-trash text-lg absolute top-1/2 -translate-y-2/4 -right-[60px] bg-white px-3 py-1 rounded-full"
                   ></i>
-                  <img width={60} height={60} className={``} src={previewImageURL ? previewImageURL : ""} alt="" />
+                  <img className={`w-[60px] h-[60px]`} src={previewImageURL ? previewImageURL : ""} alt="" />
                 </div>
               ) : (
                 <div
@@ -178,7 +178,7 @@ export default function Category() {
                   }}
                   className="bg-gray-300 relative rounded-lg cursor-pointer w-[60px] h-[60px] mb-3 flex items-center justify-center"
                 >
-                  <img src={categories ? categories[selectedCategoryCount - 1].imageLocation : ""} width={60} height={60} alt={""} className={`rounded-lg`}></img>
+                  <img src={categories ? categories[selectedCategoryCount - 1].imageLocation : ""} alt={""} className={`rounded-lg w-[60px] h-[60px]`} />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <i className="fa-solid fa-camera text-lg"></i>
                   </div>
@@ -221,7 +221,7 @@ export default function Category() {
                 <div className={`my-1 ${selectedCategoryCount === item.id ? "bg-black" : "bg-gray-300"}  rounded-lg w-full py-0.5 flex flex-col items-center`}>
                   <i className={`fa-solid ${selectedCategoryCount === item.id ? "text-white" : "text-gray-400"} fa-check`}></i>
                 </div>
-                <img width={60} height={60} alt={""} src={item.imageLocation ? item.imageLocation : ""} />
+                <img alt={""} src={item.imageLocation ? item.imageLocation : ""} className="w-[60px] h-[60px]" />
                 <span className="ellipsis">{item.name}</span>
               </div>
             </div>
