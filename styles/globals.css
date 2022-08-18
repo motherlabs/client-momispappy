@@ -35,6 +35,13 @@ i:hover {
   -webkit-box-orient: vertical;
 }
 
+.non-scroll {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .flex-ellipsis {
   @apply min-w-0 text-ellipsis whitespace-nowrap overflow-hidden;
 }

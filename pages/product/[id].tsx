@@ -34,6 +34,7 @@ export default function ProductDetail() {
   const [oldRelations, setOldRelations] = useState<{ toProductId: number; fromProductId: number }[]>([]);
   const [recentRelations, setRecentRelations] = useState<{ toProductId: number; fromProductId: number }[]>([]);
   const [isRequset, setIsRequest] = useState(false);
+  const [nonScroll, setNonScroll] = useState(false);
 
   useEffect(() => {
     if (router.query.id) {
@@ -139,9 +140,17 @@ export default function ProductDetail() {
   }, [updateProductAPIHandler, name, price, categoryId, disCount, shippingFee]);
 
   return (
-    <div className={` h-screen`}>
+    <div className={` h-screen ${nonScroll ? "non-scroll" : ""}`}>
       {isRelation && (
-        <Relation recentRelations={recentRelations} setRecentRelations={setRecentRelations} toProductId={router.query.id ? +router.query.id : 0} setIsRelation={setIsRelation} relation={selectedRelations} setRelation={setSelectedRelations} />
+        <Relation
+          setNonScroll={setNonScroll}
+          recentRelations={recentRelations}
+          setRecentRelations={setRecentRelations}
+          toProductId={router.query.id ? +router.query.id : 0}
+          setIsRelation={setIsRelation}
+          relation={selectedRelations}
+          setRelation={setSelectedRelations}
+        />
       )}
       <div className="px-4">
         <div
@@ -246,6 +255,7 @@ export default function ProductDetail() {
                 <div
                   onClick={() => {
                     setIsRelation(true);
+                    setNonScroll(true);
                   }}
                   className="bg-black flex cursor-pointer  justify-center items-center h-[48px]"
                 >

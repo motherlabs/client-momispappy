@@ -34,6 +34,7 @@ export default function ProductAdd() {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [isRelation, setIsRelation] = useState(false);
   const [relation, setRelation] = useState<{ id: number; image: string }[]>([]);
+  const [nonScroll, setNonScroll] = useState(false);
 
   useEffect(() => {
     console.log("product add check");
@@ -191,8 +192,8 @@ export default function ProductAdd() {
   const isCreateButton = isCreateButtonHandler();
 
   return (
-    <div className={` h-screen`}>
-      {isRelation && <Relation setIsRelation={setIsRelation} relation={relation} setRelation={setRelation} />}
+    <div className={` h-screen ${nonScroll ? "non-scroll" : ""}`}>
+      {isRelation && <Relation setNonScroll={setNonScroll} setIsRelation={setIsRelation} relation={relation} setRelation={setRelation} />}
       <div className="px-4">
         <div
           onClick={() => {
@@ -297,6 +298,7 @@ export default function ProductAdd() {
                   <div
                     onClick={() => {
                       setIsRelation(true);
+                      setNonScroll(true);
                     }}
                     className="bg-black flex cursor-pointer  justify-center items-center h-[48px]"
                   >

@@ -14,9 +14,10 @@ type Props = {
   setRecentRelations?: Dispatch<SetStateAction<{ toProductId: number; fromProductId: number }[]>>;
   recentRelations?: { toProductId: number; fromProductId: number }[];
   toProductId?: number;
+  setNonScroll: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function Relation({ setIsRelation, setRelation, relation, setRecentRelations = () => {}, toProductId = 0, recentRelations = [] }: Props) {
+export default function Relation({ setIsRelation, setRelation, relation, setNonScroll, setRecentRelations = () => {}, toProductId = 0, recentRelations = [] }: Props) {
   const products = useSelector((state: RootState) => state.product.products);
   const categories = useSelector((state: RootState) => state.product.categories);
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ export default function Relation({ setIsRelation, setRelation, relation, setRece
       <div
         onClick={() => {
           setIsRelation(false);
+          setNonScroll(false);
         }}
         className="fixed top-1 left-3 px-1 py-1  rounded-full  z-50  flex items-center"
       >
@@ -115,6 +117,7 @@ export default function Relation({ setIsRelation, setRelation, relation, setRece
               <button
                 onClick={() => {
                   setIsRelation(false);
+                  setNonScroll(false);
                 }}
                 className="text-white bg-black w-[200px] h-[48px] rounded-lg  fadein"
               >
