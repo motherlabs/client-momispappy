@@ -10,9 +10,6 @@ const nextConfig = {
     });
     return config;
   },
-  images: {
-    domains: ["momispappy-bucket.s3.ap-northeast-2.amazonaws.com", "looxloo.com", "localhost", "momispappy.com"],
-  },
   async rewrites() {
     return [
       {
